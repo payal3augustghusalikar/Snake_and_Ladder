@@ -13,11 +13,32 @@ public class Snake_And_Ladder {
 		return value;
 	}
 	
+	public static int optionForPlay() {
+		Random random=new Random();
+        int value1 = random.nextInt(3);
+		return  value1 ;
+	}
 	public static void main(String[] args) {
+		
 		System.out.println("Welcome to Snake and ladder game");
 		System.out.println("Start position is " + startPosition);
 		System.out.println("Winning position is " + WinningPosition);
-		newPosition = newPosition+throwDie();
+		
+		int playValue=optionForPlay();
+		
+		if(playValue==0) {
+			System.out.println("No play");
+			newPosition = newPosition;
+		}
+			else if(playValue==1) {
+				System.out.println("got ladder");
+				newPosition = newPosition + throwDie();
+		}
+			else if(playValue==2) {
+				System.out.println("snake attack");
+					newPosition = newPosition - throwDie();	
+			}
+		
 		System.out.println("new position is : " +newPosition);
 	}
 
