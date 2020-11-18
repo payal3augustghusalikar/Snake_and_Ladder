@@ -28,22 +28,23 @@ public class Snake_And_Ladder {
 		
 		while(newPosition<WinningPosition) {
 			int playValue=optionForPlay();
-		
+			int	diceRollValue=throwDie();
+			System.out.println("~~~ Dice rolled value: "+diceRollValue);
 			if(playValue==0) {
 				System.out.println("No play");
 				newPosition = newPosition;
 			}
 			else if(playValue==1) {
 				System.out.println("got ladder");
-				newPosition = newPosition + throwDie();
+				newPosition = newPosition + diceRollValue;
 				if(newPosition>100) {
-					newPosition=100;
-					System.out.println("congratulations player reached to winning position");
+					
+					//System.out.println("congratulations player reached to winning position");
 				}
 			}
 			else if(playValue==2) {
 				System.out.println("snake attack");
-				newPosition = newPosition - throwDie();	
+				newPosition = newPosition - diceRollValue;	
 				if(newPosition<0) {
 					newPosition=0;
 				}
