@@ -18,28 +18,39 @@ public class Snake_And_Ladder {
         int value1 = random.nextInt(3);
 		return  value1 ;
 	}
+	
 	public static void main(String[] args) {
 		
-		System.out.println("Welcome to Snake and ladder game");
+		System.out.println("*-------Welcome to Snake and ladder game----*");
 		System.out.println("Start position is " + startPosition);
 		System.out.println("Winning position is " + WinningPosition);
+		System.out.println("----------------------------------------------");
 		
-		int playValue=optionForPlay();
+		while(newPosition<WinningPosition) {
+			int playValue=optionForPlay();
 		
-		if(playValue==0) {
-			System.out.println("No play");
-			newPosition = newPosition;
-		}
+			if(playValue==0) {
+				System.out.println("No play");
+				newPosition = newPosition;
+			}
 			else if(playValue==1) {
 				System.out.println("got ladder");
 				newPosition = newPosition + throwDie();
-		}
+				if(newPosition>100) {
+					newPosition=100;
+					System.out.println("congratulations player reached to winning position");
+				}
+			}
 			else if(playValue==2) {
 				System.out.println("snake attack");
-					newPosition = newPosition - throwDie();	
+				newPosition = newPosition - throwDie();	
+				if(newPosition<0) {
+					newPosition=0;
+				}
 			}
 		
-		System.out.println("new position is : " +newPosition);
-	}
+			System.out.println("new position is : " +newPosition);
+		}
 
+	}	
 }
