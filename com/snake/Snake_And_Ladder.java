@@ -28,7 +28,9 @@ public class Snake_And_Ladder {
 		
 		while(newPosition<WinningPosition) {
 			int playValue=optionForPlay();
+
 			int	diceRollValue=throwDie();
+
 			System.out.println("~~~ Dice rolled value: "+diceRollValue);
 			if(playValue==0) {
 				System.out.println("No play");
@@ -40,6 +42,8 @@ public class Snake_And_Ladder {
 				if(newPosition>100) {
 					
 					//System.out.println("congratulations player reached to winning position");
+					newPosition=newPosition-diceRollValue;
+
 				}
 			}
 			else if(playValue==2) {
@@ -51,6 +55,9 @@ public class Snake_And_Ladder {
 			}
 		
 			System.out.println("new position is : " +newPosition);
+			if(newPosition==100) {
+				System.out.println("congratulations player reached to winning position");
+			}
 		}
 
 	}	
