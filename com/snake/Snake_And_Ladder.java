@@ -21,12 +21,7 @@ public class Snake_And_Ladder {
 		return  value1 ;
 	}
 	
-	public static void main(String[] args) {
-		System.out.println("*-------Welcome to Snake and ladder game----*");
-		System.out.println("Start position is " + startPosition);
-		System.out.println("Winning position is " + WinningPosition);
-		System.out.println("----------------------------------------------");
-		
+	static void play() {
 		while(newPosition<WinningPosition) {
 			int playValue=optionForPlay();
 			int	diceRollValue=throwDie();
@@ -59,5 +54,13 @@ public class Snake_And_Ladder {
 				System.out.println("Game ended");
 			}
 		}
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("*-------Welcome to Snake and ladder game----*");
+		System.out.println("Start position is " + startPosition);
+		System.out.println("Winning position is " + WinningPosition);
+		System.out.println("----------------------------------------------");
+		play();
 	}	
 }
