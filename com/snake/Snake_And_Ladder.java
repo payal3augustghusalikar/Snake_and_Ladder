@@ -6,8 +6,10 @@ public class Snake_And_Ladder {
 	public static final int startPosition=0;
 	public static final int WinningPosition=100;
 	public static int newPosition=0;
+	static int diceRollCount=0;
 	
 	public static int throwDie() {
+		diceRollCount++;
 		Random random=new Random();
         int value = random.nextInt(6)+1;
 		return value;
@@ -27,40 +29,33 @@ public class Snake_And_Ladder {
 		
 		while(newPosition<WinningPosition) {
 			int playValue=optionForPlay();
-
 			int	diceRollValue=throwDie();
 
-			System.out.println("~~~ Dice rolled value: "+diceRollValue);
+			System.out.println("------ Dice rolled value: "+diceRollValue );
 			
 			if(playValue==0) {
 				System.out.println("No play");
 				newPosition = newPosition;
 			}
 			else if(playValue==1) {
-				System.out.println("got ladder");
+				System.out.println("####### got ladder");
 				newPosition+=diceRollValue;
 				if(newPosition>100) {
-<<<<<<< HEAD
-					
-					//System.out.println("congratulations player reached to winning position");
-					newPosition=newPosition-diceRollValue;
-
-=======
 					newPosition-=diceRollValue;	
->>>>>>> uc5-exact_winning_position
 				}
 			}
 			else if(playValue==2) {
-				System.out.println("snake attack");
+				System.out.println("~~~~~~~~< snake attack");
 				newPosition-=diceRollValue;	
 				if(newPosition<0) {
 					newPosition=0;
 				}
 			}
-			System.out.println("new position is : " +newPosition);
+			System.out.println("dice count is: "+diceRollCount);
+			System.out.println("new position is : " +newPosition +"\n");
 			
 			if(newPosition==100) {
-				System.out.println("congratulations player reached to winning position");
+				System.out.println("****** congratulations player reached to winning position ******");
 				System.out.println("Game ended");
 			}
 		}
